@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .contact__container {
+        display: flex;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 800px;
+        width: 100%;
+      }
+      .contact__form-container {
+        flex: 1;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .contact__form-container h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+      .contact__form input,
+      .contact__form select,
+      .contact__form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      .btn:hover {
+        background-color: #333;
+      }
+      .contact__image {
+        flex: 1;
+        background: url('https://images.pexels.com/photos/1181715/pexels-photo-1181715.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
+      }
+      .notification {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4caf50;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      @media (max-width: 768px) {
+        .contact__container {
+          flex-direction: column;
+        }
+        .contact__image {
+          height: 200px;
+        }
+      }
+    </style>
+    <script>
+      function showNotification() {
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+        setTimeout(function() {
+          notification.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </head>
+  <body>
+    <section class="contact__container">
+      <div class="contact__form-container">
+        <h2>Contact Us</h2>
+        <p>Have any questions? Get in touch with us.</p>
+        <form class="contact__form" onsubmit="event.preventDefault(); showNotification();">
+          <input type="email" placeholder="Enter your email" required />
+          <select required>
+            <option value="" disabled selected>What is it about?</option>
+            <option value="general">General Inquiry</option>
+            <option value="support">Support</option>
+            <option value="feedback">Feedback</option>
+          </select>
+          <textarea placeholder="Enter your message" required></textarea>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+      <div class="contact__image"></div>
+    </section>
+    <div id="notification" class="notification">Message sent successfully!</div>
+  </body>
+</html>
